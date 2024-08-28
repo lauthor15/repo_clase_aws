@@ -5,6 +5,7 @@ resource "aws_vpc" "vpc_clase" {
 
   tags = {
     Name = "vpc_Clase"
+    proyecto= "Mintic"
   }
 }
 
@@ -15,6 +16,7 @@ resource "aws_subnet" "Subnet_clase_1" {
 
   tags = {
     Name = "Subnet_clase_1"
+    proyecto= "Mintic"
   }
 }
 
@@ -23,6 +25,7 @@ resource "aws_internet_gateway" "gw_clase" {
 
   tags = {
     Name = "gw_clase"
+    proyecto= "Mintic"
   }
 }
 
@@ -37,10 +40,15 @@ resource "aws_route_table" "rt_clase_1" {
 
   tags = {
     Name = "rt_defaul_clase"
+    proyecto= "Mintic"
   }
 }
 
 resource "aws_route_table_association" "a_rt_clase_1" {
   subnet_id      = aws_subnet.Subnet_clase_1.id
   route_table_id = aws_route_table.rt_clase_1.id
+tags = {
+    Name = "rt_defaul_clase"
+    proyecto= "Mintic"
+  }
 }
